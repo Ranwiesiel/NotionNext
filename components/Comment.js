@@ -26,6 +26,7 @@ const Comment = ({ frontMatter, className }) => {
   const COMMENT_UTTERRANCES_REPO = siteConfig('COMMENT_UTTERRANCES_REPO')
   const COMMENT_GITALK_CLIENT_ID = siteConfig('COMMENT_GITALK_CLIENT_ID')
   const COMMENT_WEBMENTION_ENABLE = siteConfig('COMMENT_WEBMENTION_ENABLE')
+  const COMMENT_DISQUS_SHORTNAME = siteConfig('COMMENT_DISQUS_SHORTNAME')
 
   useEffect(() => {
     // Check if the component is visible in the viewport
@@ -148,6 +149,12 @@ const Comment = ({ frontMatter, className }) => {
               <WebMentionComponent frontMatter={frontMatter} className='px-2' />
             </div>
           )}
+
+          {COMMENT_DISQUS_SHORTNAME && (
+            <div key='Disqus'>
+              <DisqusComponent frontMatter={frontMatter} />
+            </div>
+          )}
         </Tabs>
       )}
     </div>
@@ -201,6 +208,10 @@ const WebMentionComponent = dynamic(
 )
 
 const ValineComponent = dynamic(() => import('@/components/ValineComponent'), {
+  ssr: false
+})
+
+const DisqusComponent = dynamic(() => import('@/components/Disqus'), {
   ssr: false
 })
 

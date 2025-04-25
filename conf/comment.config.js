@@ -1,6 +1,6 @@
 /**
  * 挂件组件相关
- * 可同时开启多个支持 WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
+ * 可同时开启多个支持 WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK DISQUS
  */
 module.exports = {
   COMMENT_HIDE_SINGLE_TAB:
@@ -97,5 +97,9 @@ module.exports = {
     process.env.NEXT_PUBLIC_WEBMENTION_HOSTNAME || '',
   COMMENT_WEBMENTION_TWITTER_USERNAME:
     process.env.NEXT_PUBLIC_TWITTER_USERNAME || '',
-  COMMENT_WEBMENTION_TOKEN: process.env.NEXT_PUBLIC_WEBMENTION_TOKEN || ''
+  COMMENT_WEBMENTION_TOKEN: process.env.NEXT_PUBLIC_WEBMENTION_TOKEN || '',
+
+  // disqus 评论插件
+  COMMENT_DISQUS_SHORTNAME: process.env.NEXT_PUBLIC_COMMENT_DISQUS_SHORTNAME || '', // Your disqus shortname. For example: 'example' if your site is example.disqus.com
+  COMMENT_DISQUS_LANG: process.env.NEXT_PUBLIC_COMMENT_DISQUS_LANG || '' // Language setting for Disqus, leave empty to use default (auto-detect)
 }
